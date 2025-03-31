@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', () => {
     controller.getTypesPokemons();
 
     const typePokemonsList = document.querySelector('.types');
-    // console.log(buttonTypes)
 
     typePokemonsList.addEventListener('click', async (event) => {
         isLoading=true;
@@ -16,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
             
             // if (isLoading) return;
             const key = event.target.getAttribute('key');
-            // console.log(key);
+            console.log(key);
             // controller.abortFetch();
             // await controller.resetPokemons();
             
@@ -25,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 this.lastKey = key;
                 // await controller.abortFetch();
                 // this.isLoading=true;
+                //console.log(event.target)
                 await controller.changeColor(event.target);
 
                 
@@ -62,5 +62,14 @@ window.addEventListener('DOMContentLoaded', () => {
             // pokemonList.removeEventListener('scroll', arguments.callee);
         }
     })
+
+    document.querySelector('.pokemonList').addEventListener('click', async (e) => {
+        if (e.target.classList.contains('info-btn')) {
+            const name = e.target.getAttribute('data-name');
+            const data = await model.getPokemon(`https://pokeapi.co/api/v2/pokemon/${name}`);
+            const fullAbilities = await controller.getFullAbilities(data.abilities);
+            await view.displayPokemonModal(data, fullAbilities);
+        }
+    });
 
   });

@@ -44,6 +44,17 @@ class UserModel {
       }
     }
 
+    async getAbilityDescription(url) {
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const effect = data.effect_entries.find(e => e.language.name === "en");
+        return effect ? effect.short_effect : "No description available.";
+      } catch (error) {
+        return "Error loading ability description.";
+      }
+    }
+
     getControler(){
       return this.controller;
     }

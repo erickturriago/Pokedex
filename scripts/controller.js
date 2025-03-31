@@ -11,8 +11,23 @@ class UserController {
   
     async getTypesPokemons() {
       const typesPokemons = await this.model.getTypesPokemons();
-      console.log(typesPokemons)
-      this.view.displayTypesPokemons(typesPokemons.results);  
+    
+      // 🔍 Filtrar tipos inválidos
+      const tiposValidos = typesPokemons.results.filter(
+        type => type.name !== 'stellar' && type.name !== 'unknown'
+      );
+    
+      this.view.displayTypesPokemons(tiposValidos);
+    
+      // 🔀 Mostrar un tipo aleatorio al iniciar
+      setTimeout(() => {
+        const typeButtons = document.querySelector('.types').children;
+        if (typeButtons.length > 0) {
+          const randomIndex = Math.floor(Math.random() * typeButtons.length);
+          const randomButton = typeButtons[randomIndex];
+          randomButton.click();
+        }
+      }, 100);
     }
 
     async getPokemons(key) {
@@ -37,6 +52,20 @@ class UserController {
       });
         // this.view.displayPokemons(pokemons);
         this.firstPokemon=this.lastPokemon;
+    }
+
+
+    async getFullAbilities(abilities) {
+      return await Promise.all(
+        abilities.map(async (a) => {
+          const desc = await this.model.getAbilityDescription(a.ability.url);
+          return {
+            name: a.ability.name,
+            is_hidden: a.is_hidden,
+            description: desc
+          };
+        })
+      );
     }
 
     async resetPokemons(){

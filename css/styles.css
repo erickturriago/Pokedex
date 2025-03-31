@@ -125,6 +125,19 @@ body .main{
     
 }
 
+.main .pokemonList .pokemonCard .info-btn{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.main .pokemonList .pokemonCard .info-btn:hover{
+    transform: scale(1.1); /* Más visible pero aún sutil */
+}
+
 .u-rubber-band {
     animation: rubberBand 1200ms infinite;
   }
@@ -146,7 +159,7 @@ body .main{
 }
 
 
-.main .pokemonList .pokemonCard .statBar{
+.statBar{
     height: 10px;
     width: 100px;
     background-color: #e9e8e7;
@@ -156,7 +169,7 @@ body .main{
     /* transform-origin: left; */
 }
 
-.main .pokemonList .pokemonCard .statBarFill{
+.statBarFill{
     height: 10px;
     border-radius: 5px;
     /* background-color: rgb(0, 136, 255); */
@@ -172,7 +185,7 @@ body .main{
     /* transform-origin: left; */
 }
 
-.main .pokemonList .pokemonCard .statBarFill p{
+.statBarFill p{
     font-size: 10px;
 }
 
@@ -202,6 +215,7 @@ body .main{
 .main .pokemonList .pokemonCard .pokemonInfo img{
     /* width: 30%; */
     z-index: 1;
+    margin: 1rem;
 }
 
 .main .pokemonList .pokemonCard .pokemonInfo p{
@@ -297,4 +311,47 @@ body .main{
     border-radius: 20px;
     width: 10px;
     /* border: 5px solid #f1f2f3; */
+}
+
+
+
+
+
+/* Estilos del modal */
+
+
+.modal-info-pokemon .modal-body h4{
+    text-transform: capitalize;
+    font-family: 'Rubik';
+    color: #a39f99;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #66625c;
+}
+
+
+.modal-info-pokemon .modal-body .pokemonStats{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.modal-info-pokemon .modal-body .pokemonType{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.modal-info-pokemon .modal-body .pokemonType span{
+    padding: 3px 7px 3px 7px;
+    border-radius: 5px;
+    font-family: 'Rubik';
+    text-transform: capitalize;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
 }
