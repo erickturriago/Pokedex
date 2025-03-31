@@ -36,7 +36,7 @@ class UserController {
       //  console.log(key);
       //  console.log(this.firstPokemon +" "+this.lastPokemon);
 
-      this.lastPokemon += 10;
+      this.lastPokemon += 25;
       const loadingBox = document.querySelector('.pokemonLoading');
 
       const pokemons = await this.model.getPokemonList(key, this.firstPokemon, this.lastPokemon);
