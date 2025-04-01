@@ -1,72 +1,70 @@
-*{
+/* ------------------------------
+   RESET
+------------------------------ */
+* {
     box-sizing: border-box;
 }
 
-html,body{
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
-
-body .header{
-    height: 10%;
-    /* background-color: aqua; */
-}
-
-.main .types .nav{
+    width: 100vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    gap: 10px;
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+.topbar,
+.types-modal {
     display: none;
 }
 
-.main .types .nav i{
-    font-size: 20px;
-}
 
-.main .types .nav input{
-    /* display: none; */
-    height: 20px;
-    width: 70%;
-    border-radius: 10px;
-    /* font-size: 20px; */
-    font-family: 'Rubik';
-    letter-spacing: 2px;
-    font-weight: 600;
-    /* padding-left: 10px; */
-}
-
-
-body .main{
+/* ------------------------------
+   MAIN CONTAINER
+------------------------------ */
+body .main {
     width: 100%;
     height: 100%;
     display: flex;
-    /* background-color: green; */
 }
 
-.main .types{
+/* ------------------------------
+   TYPES (barra lateral)
+------------------------------ */
+.bar {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.bar .burger-btn {
+    display: none;
+}
+
+
+body .types {
     flex: 1.2;
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     gap: 10px;
     overflow-y: auto;
     overflow-x: hidden;
+    list-style-type: none;
 }
 
-.main .types p{
-    /* color: white; */
-    padding: 10% 0% 10% 0%;
+body .types li {
     width: 100%;
+    padding: 10% 0;
     margin: 0;
     text-align: center;
-    /* color: rgb(255, 255, 255); */
-    /* background-color: rgb(0, 136, 255); */
     background-color: #f4f4f4;
     font-family: 'Rubik';
     font-weight: 600;
@@ -78,19 +76,41 @@ body .main{
     transition: all .1s ease-in;
 }
 
-.main .types p:hover{
-    
-    /* margin-left: 10px;
-    margin-top: 20px;
-    box-shadow: 4px 3px 0px 0px rgba(0,0,0,0.4);
-    transform: translateX(-10px) translateY(-10px); */
-}
-
-.main .types .hovered{
+body .types .hovered {
     background-color: rgb(169, 19, 177);
 }
 
-.main .pokemonList{
+/* ------------------------------
+   NAV (buscador)
+------------------------------ */
+.main .types .nav {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+}
+
+.main .types .nav i {
+    font-size: 20px;
+}
+
+.main .types .nav input {
+    height: 20px;
+    width: 70%;
+    border-radius: 10px;
+    font-family: 'Rubik';
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* ------------------------------
+   POKEMON LIST
+------------------------------ */
+
+
+
+.main .pokemonList {
     flex: 10;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -102,30 +122,24 @@ body .main{
     scroll-behavior: smooth;
 }
 
-.main .pokemonList > :nth-child(n+4){
-    /* background-color: #ffffff; */
-}
-
-.main .pokemonList > :nth-child(n+1){
+.main .pokemonList> :nth-child(n+1) {
     background-color: #f8f7f7;
 }
 
-.main .pokemonList .pokemonCard{
-    /* background-color: aqua; */
+/* ------------------------------
+   POKEMON CARD
+------------------------------ */
+.main .pokemonList .pokemonCard {
     overflow: hidden;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: space-around;
     position: relative;
     border-radius: 10px;
-    /* border: 1px solid red; */
-    /* box-shadow: 10px 10px 30px #d4d4d4; */
-    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.3),0px 10px 15px -3px rgba(0,0,0,0.1);
-    
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.3), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.main .pokemonList .pokemonCard .info-btn{
+.main .pokemonList .pokemonCard .info-btn {
     position: absolute;
     right: 1rem;
     top: 1rem;
@@ -134,16 +148,11 @@ body .main{
     transition: transform 0.2s ease-in-out;
 }
 
-.main .pokemonList .pokemonCard .info-btn:hover{
-    transform: scale(1.1); /* Más visible pero aún sutil */
+.main .pokemonList .pokemonCard .info-btn:hover {
+    transform: scale(1.1);
 }
 
-.u-rubber-band {
-    animation: rubberBand 1200ms infinite;
-  }
-
-
-.main .pokemonList .pokemonCard p{
+.main .pokemonList .pokemonCard p {
     text-transform: capitalize;
     font-family: 'Rubik';
     color: #a39f99;
@@ -154,77 +163,36 @@ body .main{
     letter-spacing: 1px;
 }
 
-.main .pokemonList .pokemonCard table:nth-child(2){
+.main .pokemonList .pokemonCard table:nth-child(2) {
     color: #66625c;
 }
 
-
-.statBar{
-    height: 10px;
-    width: 100px;
-    background-color: #e9e8e7;
-    border-radius: 5px;
-    /* animation: progressBar 2s ease-in-out; */
-    /* transition: all .3s ease-in; */
-    /* transform-origin: left; */
-}
-
-.statBarFill{
-    height: 10px;
-    border-radius: 5px;
-    /* background-color: rgb(0, 136, 255); */
-    animation: progressBar .6s ease-in-out forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    color: transparent;
-    letter-spacing: 1px;
-    /* max-width: 20px; */
-    /* transition: all .3s ease-in; */
-    /* transform-origin: left; */
-}
-
-.statBarFill p{
-    font-size: 10px;
-}
-
-@keyframes progressBar {
-    from{
-        width: 0px;
-    }
-    to{
-        width: 100%;
-        /* color: white; */
-    }
-}
-
-.main .pokemonList .pokemonCard .pokemonInfo{
-    /* height: 80%; */
+/* ------------------------------
+   POKEMON INFO
+------------------------------ */
+.main .pokemonList .pokemonCard .pokemonInfo {
     padding: 10px 50px 15px 50px;
-    box-shadow: 10px 10px 30px #e9e8e7;
-    /* border: 1px solid red; */
+    /*box-shadow: 10px 10px 30px #e9e8e7;^*/
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     transition: all .4s ease-in;
-    
 }
 
-.main .pokemonList .pokemonCard .pokemonInfo img{
-    /* width: 30%; */
+.main .pokemonList .pokemonCard .pokemonInfo img {
     z-index: 1;
     margin: 1rem;
 }
 
-.main .pokemonList .pokemonCard .pokemonInfo p{
+.main .pokemonList .pokemonCard .pokemonInfo p {
     font-size: 20px;
     font-weight: 600;
     color: #66625c;
 }
 
-.main .pokemonList .pokemonCard .pokemonInfo > .idPokedex{
+.main .pokemonList .pokemonCard .pokemonInfo>.idPokedex {
     margin: 0;
     width: 50px;
     height: 50px;
@@ -238,19 +206,18 @@ body .main{
     font-family: 'Rubik';
     letter-spacing: 10px;
     opacity: 0;
-    /* z-index: -1; */
-    /* right: 0px;
-    top: 0px; */
-    /* border-radius: 50px; */
-    /* background-color: rgb(255, 0, 255); */
 }
 
-.main .pokemonList .pokemonCard .pokemonInfo .pokemonType{
+/* ------------------------------
+   POKEMON TYPE TAGS
+------------------------------ */
+.main .pokemonList .pokemonCard .pokemonInfo .pokemonType {
     display: flex;
     gap: 5px;
 }
-.main .pokemonList .pokemonCard .pokemonInfo .pokemonType span{
-    padding: 3px 7px 3px 7px;
+
+.main .pokemonList .pokemonCard .pokemonInfo .pokemonType span {
+    padding: 3px 7px;
     border-radius: 5px;
     font-family: 'Rubik';
     text-transform: capitalize;
@@ -258,100 +225,263 @@ body .main{
     font-size: 14px;
 }
 
-.main .pokemonList .pokemonCard .pokemonStats table tbody tr,td{
-    /* position: relative; */
-    /* display: block; */
+/* ------------------------------
+   POKEMON STATS
+------------------------------ */
+.main .pokemonList .pokemonCard .pokemonStats table tbody tr,
+.main .pokemonList .pokemonCard .pokemonStats table tbody td {
     font-family: 'Rubik';
-    padding: 5px 0 5px 0;
+    padding: 5px 0;
     border-radius: 10px;
     text-transform: capitalize;
     font-size: 12px;
     color: rgb(146, 146, 146);
-    /* margin-bottom: 15px; */
 }
 
-
-
-.main .pokemonList .pokemonCard .pokemonStats table tbody tr td .statPoints{
+.main .pokemonList .pokemonCard .pokemonStats table tbody td .statPoints {
     font-weight: 200;
-    margin: 0px 10px 0px 10px;
-    /* color: white; */
-
-    /* margin-bottom: 15px; */
+    margin: 0 10px;
 }
 
-
-
-.pokemonList::-webkit-scrollbar {
-    background-color: #ffffff;
-    border-radius: 20px;
-    max-width: 8px;
-    margin-right: 2px;
-    /* border: 5px solid #f1f2f3; */
+/* ------------------------------
+   STAT BARS
+------------------------------ */
+.statBar {
+    height: 10px;
+    width: 100px;
+    background-color: #e9e8e7;
+    border-radius: 5px;
 }
 
-
-.pokemonList::-webkit-scrollbar-thumb {
-    background-color: #797979;
-    border-radius: 20px;
-    /* border: 5px solid #f1f2f3; */
+.statBarFill {
+    height: 10px;
+    border-radius: 5px;
+    animation: progressBar .6s ease-in-out forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: transparent;
+    letter-spacing: 1px;
 }
 
+.statBarFill p {
+    font-size: 10px;
+}
 
+@keyframes progressBar {
+    from {
+        width: 0px;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* ------------------------------
+   SCROLLBAR PERSONALIZADO
+------------------------------ */
+.pokemonList::-webkit-scrollbar,
 .types::-webkit-scrollbar {
     background-color: #ffffff;
     border-radius: 20px;
     max-width: 8px;
-    /* border: 5px solid #f1f2f3; */
 }
 
+.pokemonList::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+}
 
 .types::-webkit-scrollbar-thumb {
     background-color: #b3b3b3;
     border-radius: 20px;
     width: 10px;
-    /* border: 5px solid #f1f2f3; */
 }
 
-
-
-
-
-/* Estilos del modal */
-
-
-.modal-info-pokemon .modal-body h4{
+/* ------------------------------
+   MODAL INFO POKEMON
+------------------------------ */
+.modal-info-pokemon .modal-body h4 {
     text-transform: capitalize;
     font-family: 'Rubik';
-    color: #a39f99;
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 1.25;
-    letter-spacing: 1px;
-    font-size: 20px;
     font-weight: 600;
+    font-size: 20px;
     color: #66625c;
+    letter-spacing: 1px;
 }
 
-
-.modal-info-pokemon .modal-body .pokemonStats{
+.modal-info-pokemon .modal-body .pokemonStats {
     display: flex;
     justify-content: center;
 }
 
-
-
-.modal-info-pokemon .modal-body .pokemonType{
+.modal-info-pokemon .modal-body .pokemonType {
     display: flex;
     justify-content: center;
     gap: 5px;
 }
 
-.modal-info-pokemon .modal-body .pokemonType span{
-    padding: 3px 7px 3px 7px;
+.modal-info-pokemon .modal-body .pokemonType span {
+    padding: 3px 7px;
     border-radius: 5px;
     font-family: 'Rubik';
     text-transform: capitalize;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     font-size: 14px;
 }
+
+.modal-info-pokemon .modal-body table td{
+    text-transform: capitalize;
+}
+
+/* ------------------------------
+   ANIMACIONES
+------------------------------ */
+.u-rubber-band {
+    animation: rubberBand 1200ms infinite;
+}
+
+
+.close-types-btn{
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+
+    /* Estructura del body en móvil */
+    body {
+      flex-direction: column;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+  
+    /* Barra fija arriba */
+    .bar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      padding: 10px 20px;
+    }
+  
+    /* Ocultar barra al hacer scroll */
+    .bar.hide {
+      transform: translateY(-100%);
+    }
+  
+    /* Botón burger */
+    .bar .burger-btn {
+      display: block;
+      margin: 0;
+      background-color: transparent;
+      border: none;
+      font-size: 1.8rem;
+      color: #333;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background-color 0.2s ease-in-out;
+    }
+  
+    .bar .burger-btn:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  
+    .bar .burger-btn:active {
+      transform: scale(0.95);
+    }
+  
+    /* Botón cerrar menú de tipos */
+    .close-types-btn {
+      display: block;
+      align-self: flex-end;
+      background-color: transparent;
+      border: none;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+  
+    /* Menú flotante oculto */
+    .bar .types {
+      display: none;
+    }
+  
+    .bar .types.show {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100dvh;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      padding: 30px;
+      flex-direction: column;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    /* Ajuste de main: padding-top dinámico */
+    .main {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 60px; /* Alto de la barra */
+      transition: padding-top 0.3s ease;
+    }
+  
+    .bar.hide + .main {
+      padding-top: 0; /* Quita espacio cuando la barra se oculta */
+    }
+  
+    /* Lista de pokemones con scroll */
+    .main .pokemonList {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 450px;
+      gap: 1.5rem;
+      padding: 1rem;
+      padding-top: 2.5rem;
+    }
+  
+    .main .pokemonList .pokemonCard {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      padding: 10px;
+    }
+  
+    .main .pokemonList .pokemonCard .pokemonInfo {
+      box-shadow: none;
+    }
+  }
+  
+  /* 🔒 Evita scroll de fondo al abrir el menú */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }

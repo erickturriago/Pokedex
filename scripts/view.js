@@ -85,7 +85,7 @@ class UserView {
     //   this.u.innerHTML = '';
         let count = 1;
         typesPokemons.forEach(type => {
-            const child = document.createElement('p');
+            const child = document.createElement('li');
             child.className = "type";
             child.innerHTML = `${this.typeIcon[type.name]} ${type.name}`
             //child.textContent = `${type.name}`;
@@ -217,8 +217,9 @@ class UserView {
             <tbody>${stats}</tbody>
           </table>
         </div>
+        <hr>
         <h5>Skills</h5>
-        <ul>${abilities}</ul>
+        <section>${abilities}</section>
       `;
     
       document.getElementById('pokemonModalBody').innerHTML = html;
