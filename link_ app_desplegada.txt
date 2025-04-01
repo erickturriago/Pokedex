@@ -2,5 +2,8 @@ Erick Leonardo Turriago Vargas
 20202020140
 elturriagov@udistrital.edu.co
 
+App Desplegada
+https://zingy-pika-8a1abf.netlify.app/
 
-https://snazzy-pastelito-e8a19a.netlify.app/
+Repositorio
+https://github.com/erickturriago/Pokedex
