@@ -336,6 +336,126 @@ body .types .hovered {
     text-transform: capitalize;
 }
 
+
+.theme-container{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: #fbfbfb;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.theme-container .theme-icon img{
+    width: 50px;
+    cursor: pointer;
+}
+
+.theme-container .theme-icon:hover{
+    background-color: #bebebe;;
+    border-radius: 5px;
+}
+
+.theme-container .theme-icon.hidden{
+    display: none;
+}
+
+/* ------------------------------
+   TEMAS POR EMOCIÓN
+------------------------------ */
+
+/* 🌞 ALEGRÍA */
+body.theme-yellow {
+    background-color: #fff9db;
+}
+
+body.theme-yellow .pokemonCard {
+    background-color: #fff3b0;
+    border: 2px solid #fdd835;
+    box-shadow: 0 4px 12px rgba(255, 214, 64, 0.4);
+    color: #8b5e00;
+}
+
+body.theme-yellow .modal-content {
+    background-color: #fff8e1;
+    color: #8b5e00;
+}
+
+body.theme-yellow .pokemonStats table td {
+    color: #a27b00;
+}
+
+body.theme-yellow .statBarFill {
+    background-color: #ffd740;
+}
+
+body.theme-yellow .bar{
+    background-color: #fdd835;
+}
+
+
+/* 💧 TRISTEZA */
+body.theme-blue {
+    background-color: #e0f0ff;
+}
+
+body.theme-blue .pokemonCard {
+    background-color: #d0eaff;
+    border: 2px solid #90caf9;
+    box-shadow: 0 4px 12px rgba(0, 105, 192, 0.2);
+    color: #003c8f;
+}
+
+body.theme-blue .modal-content {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+body.theme-blue .pokemonStats table td {
+    color: #1565c0;
+}
+
+body.theme-blue .statBarFill {
+    background-color: #64b5f6;
+}
+
+body.theme-blue .bar{
+    background-color: #90caf9;
+}
+
+
+/* 🌱 CALMA */
+body.theme-green {
+    background-color: #e0ffe0;
+}
+
+body.theme-green .pokemonCard {
+    background-color: #d4fcd4;
+    border: 2px solid #81c784;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.25);
+    color: #1b5e20;
+}
+
+body.theme-green .modal-content {
+    background-color: #f1f8e9;
+    color: #2e7d32;
+}
+
+body.theme-green .pokemonStats table td {
+    color: #388e3c;
+}
+
+body.theme-green .statBarFill {
+    background-color: #81c784;
+}
+
+body.theme-green .bar{
+    background-color: #81c784;
+}
+
+
+
 /* ------------------------------
    ANIMACIONES
 ------------------------------ */

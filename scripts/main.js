@@ -85,4 +85,87 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
+
+    // ------------------------
+    // TEMA VISUAL
+    // ------------------------
+
+    const themeContainer = document.querySelector(".theme-container");
+    const themeIcons = document.querySelectorAll(".theme-container .theme-icon");
+    let pastTheme = null;
+    let currentTheme = document.querySelector(".theme-icon.selected");
+    let isThemeOpen = false;
+
+    const themeClassMap = {
+        yellow: "theme-yellow",
+        blue: "theme-blue",
+        green: "theme-green"
+    };
+
+    // Clic en el contenedor para abrir el menú
+    themeContainer.addEventListener("click", (e) => {
+        const targetDiv = e.target.closest(".theme-icon");
+        if (!targetDiv) return;
+
+        // Solo abre si se hizo clic sobre el ícono seleccionado
+        if (targetDiv.classList.contains("selected") && !isThemeOpen) {
+            themeIcons.forEach((icon) => {
+                icon.classList.remove("hidden");
+            });
+            isThemeOpen = true;
+        }
+    });
+
+    // Seleccionar nuevo tema
+    themeIcons.forEach((icon) => {
+        icon.addEventListener("click", (e) => {
+            const clickedIcon = e.currentTarget;
+
+            if (!clickedIcon.classList.contains("selected")) {
+                // Quitar clases anteriores del body
+                document.body.classList.remove("theme-yellow", "theme-blue", "theme-green");
+
+                // Agregar nueva clase de tema
+                const colorClass = [...clickedIcon.classList].find(c => themeClassMap[c]);
+                if (colorClass) {
+                    document.body.classList.add(themeClassMap[colorClass]);
+                }
+
+                // Ocultar todos los íconos excepto el clicado
+                themeIcons.forEach((i) => {
+                    if (i !== clickedIcon) {
+                        i.classList.add("hidden");
+                    }
+                });
+
+                // Esperar antes de marcar como seleccionado y moverlo
+                setTimeout(() => {
+                    currentTheme.classList.remove("selected");
+                    clickedIcon.classList.add("selected");
+
+                    // Mover el ícono seleccionado al final
+                    themeContainer.appendChild(clickedIcon);
+
+                    pastTheme = currentTheme;
+                    currentTheme = clickedIcon;
+                }, 500);
+
+                isThemeOpen = false;
+            }
+        });
+    });
+
+    // Clic fuera = cerrar menú y dejar solo el .selected
+    document.addEventListener("click", (e) => {
+        if (!isThemeOpen) return;
+
+        if (!themeContainer.contains(e.target)) {
+            themeIcons.forEach((icon) => {
+                if (!icon.classList.contains("selected")) {
+                    icon.classList.add("hidden");
+                }
+            });
+            isThemeOpen = false;
+        }
+    });
 });
